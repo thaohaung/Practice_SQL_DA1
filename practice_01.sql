@@ -42,6 +42,31 @@ WHERE LOW_FATS = 'Y' AND RECYCLABLE = 'Y'
 SELECT NAME FROM CUSTOMER
 WHERE REFEREE_ID IS NULL OR REFEREE_ID !=2
 
+--- EX11: 595. Big Countries
+SELECT name, population, area
+FROM World
+WHERE AREA >= 3000000 or POPULATION >= 25000000
+
+--- EX12: Article Views I
+SELECT distinct author_id as id
+FROM Views
+WHERE viewer_id = author_id
+ORDER BY author_id 
+
+--- EX13: Unfinished Parts [Tesla SQL Interview Question]
+SELECT part, assembly_step FROM parts_assembly
+WHERE finish_date is null or (part = 'bumpers' and assembly_step >2);
+
+--- EX14: Lyft Driver Wages
+select * 
+from lyft_drivers
+where yearly_salary <= 30000 or yearly_salary >=70000;
+
+--- EX15: Find the advertising channel where Uber spent more than 100k USD in 2019
+select * from uber_advertising
+where year = 2019 and money_spent > 100000;
+
+
 
 
 
