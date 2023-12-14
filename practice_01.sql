@@ -17,11 +17,11 @@ WHERE CITY LIKE 'a%' OR CITY LIKE 'e%' OR CITY LIKE 'i%' OR CITY LIKE 'o%' OR CI
 --- EX5: Weather Observation Station 7 - Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
 SELECT DISTINCT CITY
 FROM STATION
-WHERE CITY LIKE 'a%' OR CITY LIKE 'e%' OR CITY LIKE 'i%' OR CITY LIKE 'o%' OR CITY LIKE 'u%';
+WHERE CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u';
 
 --- EX6: Weather Observation Station 9 - Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
 SELECT DISTINCT CITY FROM STATION
-WHERE CITY LIKE 'a%' OR CITY LIKE 'e%' OR CITY LIKE 'i%' OR CITY LIKE 'o%' OR CITY LIKE 'u%';
+WHERE NOT (CITY LIKE 'a%' AND CITY LIKE 'e%' AND CITY LIKE 'i%' AND CITY LIKE 'o%' AND CITY LIKE 'u%');
 
 --- EX7: Employee Names - Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
 SELECT name FROM Employee
@@ -54,8 +54,9 @@ WHERE viewer_id = author_id
 ORDER BY author_id 
 
 --- EX13: Unfinished Parts [Tesla SQL Interview Question]
-SELECT part, assembly_step FROM parts_assembly
-WHERE finish_date is null or (part = 'bumpers' and assembly_step >2);
+SELECT DISTINCT part 
+FROM parts_assembly
+WHERE finish_date IS NULL;
 
 --- EX14: Lyft Driver Wages
 select * 
